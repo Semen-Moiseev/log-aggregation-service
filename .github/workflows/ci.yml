@@ -25,15 +25,15 @@ jobs:
       # 3. Собираем Docker-образы
       - name: Build Docker images
         run: |
-          docker-compose -f docker-compose.yml build --pull
+          docker compose -f docker-compose.yml build --pull
 
       # 4. Поднимаем контейнеры для проверки
       - name: Run containers for test
         run: |
-          docker-compose -f docker-compose.yml up -d
+          docker compose -f docker-compose.yml up -d
           sleep 10
-          docker-compose -f docker-compose.yml logs
-          docker-compose -f docker-compose.yml down
+          docker compose -f docker-compose.yml logs
+          docker compose -f docker-compose.yml down
 
       # 5. Проверка Python dependencies
       - name: Test Python dependencies
